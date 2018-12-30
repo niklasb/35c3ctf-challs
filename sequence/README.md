@@ -1,4 +1,22 @@
+# One possible solution
+
+Leaking a pretty much arbitrary amount of heap memory is easy with the disassembler
+output, since string sizes are not checked.
+
+[`ibf_load_code`](https://github.com/ruby/ruby/blob/2a70f68/compile.c#L8774)
+does not ensure that operands are in bounds, i.e. `code_index >=
+iseq_size` is allowed when processing operands. This means that the
+assignment here is an OOB write. We can forge an instruction with
+`types = "ivisionError"` or similar and will get the write at a well-controlled
+offset. The rest is a pretty annoying glibc heap metadata exploit, I used
+fastbin corruption here.
+
+--
+
+Original README for players:
+
 Big shoutout to joernchen for the challenge idea!
+
 
 # Ruby build
 

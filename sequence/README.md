@@ -3,6 +3,8 @@
 Leaking a pretty much arbitrary amount of heap memory is easy with the disassembler
 output, since string sizes are not checked.
 
+According to the fuzzer there are a ton of issues in the parser, however it is not super straightforward to sort through the crashes and find a good memory corruption primitive. I did a bit of triaging and then picked the first promising crash, which was probably not a good idea since I got sucked into a pretty unwieldy exploit process which ended up becoming very annoying. 
+
 [`ibf_load_code`](https://github.com/ruby/ruby/blob/2a70f68/compile.c#L8774)
 does not ensure that operands are in bounds, i.e. `code_index >=
 iseq_size` is allowed when processing operands. This means that the

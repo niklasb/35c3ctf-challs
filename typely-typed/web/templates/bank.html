@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>eeeeeeeeeee</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/static/jquery.hashcash.io.min.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="/static/bank.css" media="all" />
+    <script src="/static/jquery.hashcash.io.min.js"></script>
+    <script src="/static/bank.js"></script>
+  </head>
+  <body>
+    <h2>Welcome to the banking of the future: well-typed & decentralized!</h2>
+    <div><b>Status:</b> <span id="status"></span></div>
+    <div id="bank" class="hidden">
+      <div id="accounts" style="margin-top: 10px;"></div>
+
+      <h4>Deposit</h4>
+      Account: <input style='width:100px;' type="text" name="deposit-acc" id="deposit-acc" />
+      Amount: <input style='width:100px;' width=10 type="text" name="deposit-amount" id="deposit-amount" />
+      <button id='deposit-button' onclick="deposit();">Deposit</button>
+      <span id='deposit-status' class='hidden'>Processing...</span>
+
+      <h4>Transfer</h4>
+      From: <input style='width:100px;' type="text" name="transfer-from" id="transfer-from" />
+      To: <input style='width:100px;' type="text" name="transfer-to" id="transfer-to" />
+      Amount: <input style='width:100px;' type="text" name="transfer-amount" id="transfer-amount" />
+      <button id='transfer-button' onclick="transfer();">Transfer</button>
+      <span id='transfer-status' class='hidden'>Processing...</span>
+
+      <h4>Flag status</h4>
+      <span id="flag-status">
+        You don't seem to have requested the flag yet, have you tried hacking harder?
+      </span>
+    </div>
+    <script>start();</script>
+  </body>
+</html>

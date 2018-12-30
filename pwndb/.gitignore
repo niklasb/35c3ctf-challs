@@ -1,0 +1,17 @@
+a.out
+.gdb_*
+*.o
+node_modules
+npm-debug.log*
+Debug
+Release
+.vs
+build
+#*.exe
+x64
+*.pyc
+*.bak.*
+*.bak
+*.id?
+*.nam
+*.til

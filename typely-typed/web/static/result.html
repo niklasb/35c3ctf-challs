@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Result</title>
+    <script>
+      var id = window.location.hash.slice(1);
+      var vidfile = '/result/' + id + '/video.mp4';
+
+      function schedule() {
+        setTimeout(checkStatus, 2000);
+      }
+
+      function process(result) {
+        var el = document.getElementById('status');
+        el.innerText = result.status;
+
+        if (result.status !== 'success')
+          return;
+
+        el = document.getElementById('video');
+        el.innerHTML=(
+          '<video width="800" height="600" controls autoplay>'
+          + '<source src="' + vidfile + '" type="video/mp4"></video>');
+      }
+
+      function checkStatus() {
+        fetch('/status/' + id)
+          .then((res) => res.json())
+          .then((json) => {
+            if (json === null) {
+              schedule();
+            } else {
+              process(json);
+              if (!json.finished)
+                schedule();
+            }
+          });
+      }
+
+      checkStatus();
+    </script>
+  </head
+  <body>
+    <h1>Result</h1>
+    <p>
+    Status: <span id="status"></span>
+    <div id='video'></div>
+    </p>
+
+  </body>
+</html>

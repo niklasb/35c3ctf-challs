@@ -1,0 +1,9 @@
+MAX_BALANCE = 10000000000
+transfer = 10
+sender = 100
+receiver = 102
+
+balanceSender = boundscheck(getBalance( sender), transfer, MAX_BALANCE)
+balanceReceiver = boundscheck(getBalance(receiver), 0, MAX_BALANCE - transfer)
+setBalance(sender, balanceSender - transfer)
+setBalance(receiver, balanceReceiver + transfer)

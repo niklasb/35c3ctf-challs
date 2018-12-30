@@ -1,0 +1,1 @@
+call x64\Release\wctfdb.exe

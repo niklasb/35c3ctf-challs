@@ -1,0 +1,20 @@
+PODS:
+  - GHODictionary (1.1.0)
+  - MPMessagePack (1.5.1):
+    - GHODictionary
+
+DEPENDENCIES:
+  - MPMessagePack
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GHODictionary
+    - MPMessagePack
+
+SPEC CHECKSUMS:
+  GHODictionary: 225e042596a4b3d5b66b2b24250086b2f95514af
+  MPMessagePack: ee6b55fbec4e01a77e2bf631441d01f0b87b3cf5
+
+PODFILE CHECKSUM: 8117645a4892d070a9d0aa9c02d578680c60d8b9
+
+COCOAPODS: 1.5.3

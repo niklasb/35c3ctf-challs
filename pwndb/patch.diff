@@ -1,0 +1,13 @@
+diff --git a/sqlengine.h b/sqlengine.h
+index 0e830c6..0a01533 100755
+--- a/sqlengine.h
++++ b/sqlengine.h
+@@ -135,6 +135,8 @@ struct SqlTable {
+ 
+   bool insert(const SqlInsert& doit) {
+     for (const auto& row : doit.values) {
++      if (row.size() < doit.columns.size())
++        return false;  // let's not?
+       SqlRecord record(m_field_names.size());
+       for (size_t i = 0; i < doit.columns.size(); ++i) {
+         size_t column;
